@@ -1,0 +1,13 @@
+{
+  "name": "OLED Panel Shift",
+  "description": "Periodically shifts the top bar contents to reduce OLED burn-in.",
+  "uuid": "oled-shift@local",
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48", 
+    "49"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.oled-shift"
+}

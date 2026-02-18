@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.oled-shift"
+          path="/org/gnome/shell/extensions/oled-shift/">
+
+    <key name="shift-interval-seconds" type="u">
+      <default>300</default>
+      <summary>Shift interval (seconds)</summary>
+      <description>How often the top bar contents should shift.</description>
+    </key>
+
+  </schema>
+</schemalist>
