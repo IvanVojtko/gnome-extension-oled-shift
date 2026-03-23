@@ -87,3 +87,23 @@ Set **Shift interval (seconds)** to how often you want the panel contents to mov
 
 - This is not a guaranteed burn-in “fix” — it’s a mitigation strategy.
 - If you use extensions that heavily modify the top bar, results may vary.
+
+---
+
+## Release Packaging
+
+This repo includes a GitHub Actions workflow at [.github/workflows/release-package.yml](/home/ivan/MyWork/gnome-extension-oled-shift/.github/workflows/release-package.yml) that automatically builds a zip package and uploads it to the GitHub release assets whenever a release is published.
+
+The package is built by [scripts/build-package.sh](/home/ivan/MyWork/gnome-extension-oled-shift/scripts/build-package.sh), which:
+
+- copies the extension files into a clean build directory
+- compiles the GSettings schema
+- creates a `dist/<uuid>-<tag>.zip` archive ready to attach to the release
+
+You can run the same build locally:
+
+```bash
+bash scripts/build-package.sh v1.0.0
+```
+
+That will create the package in `dist/`.
