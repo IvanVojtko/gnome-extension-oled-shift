@@ -4,8 +4,8 @@ import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
 // Keep shift small to avoid clipping
-const OFFSETS_X = [-2, -1, 0, 1, 2];
-const OFFSETS_Y = [-1, 0, 1];
+const OFFSETS_X = [[-4, -3, -2, -1, 0], [-2, -1, 0, 1, 2], [0, 1, 2, 3, 4]];
+const OFFSETS_Y = [0, -1, -2];
 
 export default class OledShiftExtension extends Extension {
     enable() {
@@ -72,13 +72,13 @@ export default class OledShiftExtension extends Extension {
     }
 
     _applyShift() {
-        const dx = OFFSETS_X[this._step % OFFSETS_X.length];
+        //const dx = OFFSETS_X[this._step % OFFSETS_X.length];
         const dy = OFFSETS_Y[(Math.floor(this._step / OFFSETS_X.length)) % OFFSETS_Y.length];
 
         for (let i = 0; i < this._boxes.length; i++) {
             const box = this._boxes[i];
             const o = this._original[i];
-            box.set_translation(o.x + dx, o.y + dy, o.z);
+            box.set_translation(o.x + OFFSETS_X[i][this._step % OFFSETS_X.length], o.y + dy, o.z);
         }
     }
 
